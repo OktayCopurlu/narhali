@@ -50,7 +50,7 @@ export default function MenuLink() {
           </NavLink>
         </Navbar.NavItem>
 
-        <li className="nav-item">
+        <Navbar.NavItem>
           <NavLink
             exact
             to="/kaymaz-list"
@@ -59,8 +59,16 @@ export default function MenuLink() {
           >
             KAYMAZ TABAN HALILAR
           </NavLink>
-        </li>
-        
+        </Navbar.NavItem>
+        <Navbar.NavItem>
+          <NavLink
+            to="/create-form"
+            activeclassname="active"
+            className="nav-links"  onClick={handleClick}
+          >
+            ÜRÜN OLUSTUR
+          </NavLink>
+        </Navbar.NavItem>
       </ul>
       <Navbar.NavIcon onClick={handleClick}>
         <i className={click ? "fas fa-times" : "fas fa-bars"}> </i>

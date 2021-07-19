@@ -61,7 +61,7 @@ export default function YatakList() {
       </CardStyles.Card>{" "}
       <CardStyles.Card className="card col-3">
         <CardStyles.ItemImg
-          class="card-img-top"
+          className="card-img-top"
           src="https://img-lovayatak.mncdn.com/images/thumbs/000/0000114_algua-wellness.jpg"
           alt="Card images cap"
         />

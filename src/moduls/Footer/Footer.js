@@ -14,7 +14,7 @@ export default function Footer() {
               target="_blank"
               className="me-4 text-reset mr-3"
             >
-              <i class="fab fa-facebook-square"></i>
+              <i className="fab fa-facebook-square"></i>
             </a>
             <a
               href="https://www.trendyol.com/sr?mid=124919"

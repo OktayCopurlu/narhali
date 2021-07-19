@@ -13,19 +13,19 @@ export default function Email() {
     <Container className="mt-5">
       <form onSubmit={sendEmail}>
         <div className="form-group">
-          <label for="exampleInputEmail1">Email address</label>
+          <label >Email address</label>
           <input type="email" className="form-control" />
         </div>
         <div className="form-group mt-4">
-          <label for="exampleInputPassword1">Adi Soyadi</label>
+          <label >Adi Soyadi</label>
           <input type="text" className="form-control" />
         </div>
         <div className="form-group mt-4">
-          <label for="exampleInputPassword1">Konu</label>
+          <label >Konu</label>
           <input type="text" className="form-control" />
         </div>
         <div className="form-group mt-4">
-          <label htmlFor="detail"> Mesaj </label>
+          <label > Mesaj </label>
           <textarea
             required
             rows="5"
