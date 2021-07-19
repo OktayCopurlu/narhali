@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { TextField, Checkbox, FormControlLabel } from "@material-ui/core";
+import UploadPhoto from "./UploadPhoto";
+import Context from "../context/context";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,8 +14,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CreateForm() {
-  const URL = "https://halideneme-26fbb-default-rtdb.europe-west1.firebasedatabase.app/narhali.json"
+  const URL =
+    "https://halideneme-26fbb-default-rtdb.europe-west1.firebasedatabase.app/narhali.json";
   const classes = useStyles();
+  const photosContext = useContext(Context);
+  const [photos,setPhotos] = useState();
+  console.log(photos)
   const [sizes, setSizes] = useState({
     checkedA: false,
     checkedB: false,
@@ -34,7 +40,7 @@ export default function CreateForm() {
   const [smallCarpet, setSmallCarpet] = useState();
   const [fourMeter, setFourMetre] = useState();
   const [sixMeter, setSizMeter] = useState();
-const [color,setColor]=useState()
+  const [color, setColor] = useState();
   const body = {
     marka,
     title,
@@ -47,7 +53,8 @@ const [color,setColor]=useState()
     smallCarpet,
     fourMeter,
     sixMeter,
-    color
+    color,
+    photos,
   };
 
   function submit(event) {
@@ -81,13 +88,14 @@ const [color,setColor]=useState()
     setSmallCarpet(sizes.checkedE ? "120 x 180" : undefined);
     setFourMetre(sizes.checkedE ? "160 x 230" : undefined);
     setSizMeter(sizes.checkedG ? "200 x 290" : undefined);
+    setPhotos(photosContext.photos)
   }, [
     sizes.checkedA,
     sizes.checkedB,
     sizes.checkedC,
     sizes.checkedD,
     sizes.checkedE,
-    sizes.checkedG,
+    sizes.checkedG,photosContext.photos
   ]);
   return (
     <div className="d-flex justify-content-center my-5">
@@ -114,7 +122,6 @@ const [color,setColor]=useState()
               id="standard-basic"
               onChange={(event) => setInfo(event.target.value)}
               label="Aciklama"
-            
             />
             <TextField
               id="standard-basic"
@@ -207,7 +214,8 @@ const [color,setColor]=useState()
                 label="200 x 290"
               />
             </div>
-            <button className="btn btn-primary">Kaydet</button>
+            <UploadPhoto />
+            {/* <button className="btn btn-primary">Kaydet</button> */}
           </form>
         </div>
       </div>

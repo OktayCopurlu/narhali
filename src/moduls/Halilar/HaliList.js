@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as CardStyles from "../../UI/Card";
 import { Container } from "react-bootstrap";
 import * as productServices from "../../services/getService";
+import Slider from "./Slider";
 export default function HaliList() {
   const [productList, setProductList] = useState({});
   useEffect(() => {
@@ -21,11 +22,21 @@ export default function HaliList() {
       <CardStyles.CardContainer className="row">
         {Object.values(productList).map((item, index) => (
           <CardStyles.Card key={index} className="card col-3">
-            <CardStyles.ItemImg
+                   <div class="card-photo">
+        {item.photos.length > 0 ? (
+          <Slider photos={item.photos} />
+        ) : (
+          <img
+            className="images mb-2"
+            alt="no photos"
+            src="https://orbis-alliance.com/wp-content/themes/consultix/images/no-image-found-360x260.png"
+          />
+        )}</div>
+            {/* <CardStyles.ItemImg
               className="card-img-top"
-              src="https://cdn.dsmcdn.com//ty105/product/media/images/20210425/5/82714983/167228017/0/0_org.jpg"
+              src={item.photos}
               alt="Card images cap"
-            />
+            /> */}
             <CardStyles.CardBody className="card-body">
               <CardStyles.CardTitle className="card-title">
                 {item.marka} / {item.title}
